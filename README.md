@@ -20,24 +20,133 @@
 
 <p align="center"><em>Homepage — Browse 17 demos, 5 games, all open source</em></p>
 
-### Demo Lab Shell
-
-The lab shell lets you navigate between all demos with prev/next controls, without leaving the site.
+### Games
 
 <table>
   <tr>
-    <td align="center" width="50%">
+    <td align="center" width="33%">
       <a href="https://www.pretext.cool/hub?demo=pretext-playground">
-        <img src="./images/hub-playground.png" alt="Pretext Playground — interactive ASCII dragon sandbox" width="100%" />
+        <img src="./images/hub-playground.png" alt="Pretext Playground" width="100%" />
       </a>
-      <br/><strong>Pretext Playground</strong> — ASCII dragon sandbox
+      <br/><strong>Pretext Playground</strong><br/><sub>Interactive sandbox &middot; 0xNyk</sub>
     </td>
-    <td align="center" width="50%">
+    <td align="center" width="33%">
       <a href="https://www.pretext.cool/hub?demo=pretext-breaker">
-        <img src="./images/hub-breaker.png" alt="Pretext Breaker — Breakout game with text bricks" width="100%" />
+        <img src="./images/hub-breaker.png" alt="Pretext Breaker" width="100%" />
       </a>
-      <br/><strong>Pretext Breaker</strong> — Breakout with text bricks
+      <br/><strong>Pretext Breaker</strong><br/><sub>Breakout game &middot; rinesh</sub>
     </td>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=tetris-pretext">
+        <img src="./images/hub-tetris.png" alt="Tetris x Pretext" width="100%" />
+      </a>
+      <br/><strong>Tetris &times; Pretext</strong><br/><sub>Tetris game &middot; shinichimochizuki</sub>
+    </td>
+  </tr>
+</table>
+
+### Animations & Visual
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=pre-text-experiments">
+        <img src="./images/hub-pre-text-experiments.png" alt="PreText Experiments" width="100%" />
+      </a>
+      <br/><strong>PreText Experiments</strong><br/><sub>Dragon + Anime Walk &middot; qtakmalay</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=somnai-demos">
+        <img src="./images/hub-somnai-demos.png" alt="Somnai Demos" width="100%" />
+      </a>
+      <br/><strong>Somnai Demos</strong><br/><sub>5-demo bundle &middot; Maxwell Ingham</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=pretext-explosive">
+        <img src="./images/hub-pretext-explosive.png" alt="Pretext Explosive" width="100%" />
+      </a>
+      <br/><strong>Pretext Explosive</strong><br/><sub>Text particles &middot; SamiKamal</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=star-wars-opening">
+        <img src="./images/hub-star-wars-opening.png" alt="Star Wars Crawl" width="100%" />
+      </a>
+      <br/><strong>Star Wars Crawl</strong><br/><sub>Cinematic text &middot; berryboylb</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=illustrated-manuscript">
+        <img src="./images/hub-illustrated-manuscript.png" alt="Illustrated Manuscript" width="100%" />
+      </a>
+      <br/><strong>Illustrated Manuscript</strong><br/><sub>Medieval art &middot; dengshu2</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=sea-of-words">
+        <img src="./images/hub-sea-of-words.png" alt="Sea of Words" width="100%" />
+      </a>
+      <br/><strong>Sea of Words</strong><br/><sub>Ocean text scene &middot; Mukul-svg</sub>
+    </td>
+  </tr>
+</table>
+
+### Interaction & Experiments
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=progrmoiz-collection">
+        <img src="./images/hub-progrmoiz-collection.png" alt="Singularity & Liquid Grid" width="100%" />
+      </a>
+      <br/><strong>Singularity & Liquid Grid</strong><br/><sub>Black hole + dashboard &middot; progrmoiz</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=dokobot-drag">
+        <img src="./images/hub-dokobot-drag.png" alt="Drag Sprite Reflow" width="100%" />
+      </a>
+      <br/><strong>Drag Sprite Reflow</strong><br/><sub>Interactive reflow &middot; dokobot</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=alarmy">
+        <img src="./images/hub-alarmy.png" alt="Alarmy Editorial Clock" width="100%" />
+      </a>
+      <br/><strong>Alarmy Editorial Clock</strong><br/><sub>Multi-column &middot; SmisLee</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=jalada-testimonials">
+        <img src="./images/hub-jalada-testimonials.png" alt="Responsive Testimonials" width="100%" />
+      </a>
+      <br/><strong>Responsive Testimonials</strong><br/><sub>Product UI &middot; jalada</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=text-flow">
+        <img src="./images/hub-text-flow.png" alt="Text Flow Demo" width="100%" />
+      </a>
+      <br/><strong>Text Flow Demo</strong><br/><sub>Experiment &middot; MaiMcdull</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=world-model">
+        <img src="./images/hub-world-model.png" alt="World Model Test" width="100%" />
+      </a>
+      <br/><strong>World Model Test</strong><br/><sub>UI &middot; CharlieGreenman</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=sachinkasana-face">
+        <img src="./images/hub-sachinkasana-face.png" alt="Face x Pretext" width="100%" />
+      </a>
+      <br/><strong>Face &times; Pretext</strong><br/><sub>TF.js + text &middot; sachinkasana</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://www.pretext.cool/hub?demo=clawsuo-dom-vs-pretext">
+        <img src="./images/hub-clawsuo-dom-vs-pretext.png" alt="DOM vs Pretext" width="100%" />
+      </a>
+      <br/><strong>DOM vs Pretext</strong><br/><sub>Performance benchmark &middot; clawsuo-web</sub>
+    </td>
+    <td align="center" width="33%"></td>
   </tr>
 </table>
 
