@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pretext Community Demos — Games, Animations & Typography Experiments</title>
+  <meta name="description" content="A curated collection of 17+ community-built Pretext demos: text games (Tetris, Breakout), ASCII art animations, physics typography, dragon reflow — powered by @chenglou/pretext." />
+  <meta name="keywords" content="pretext, pretext demo, pretext games, chenglou pretext, text layout engine, DOM-free text, ASCII art, text animation, pretext playground, pretext breaker, pretext tetris, pretext dragon, typography, pretext community, pretext examples" />
+  <link rel="canonical" href="https://www.pretext.cool/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pretext Community Demo Collection — pretext.cool" />
+  <meta property="og:description" content="17+ interactive demos, games, and experiments built with @chenglou/pretext. Play Tetris, smash words in Breakout, watch dragons flow through text." />
+  <meta property="og:url" content="https://www.pretext.cool/" />
+  <meta property="og:image" content="./images/hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="./images/hero.png" />
+  <meta name="twitter:title" content="Pretext Community Demos — pretext.cool" />
+  <meta name="twitter:description" content="17+ community-built demos powered by @chenglou/pretext — the 500x faster DOM-free text layout engine." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Pretext Community Demo Collection",
+    "description": "17+ interactive Pretext demos, games, and typography experiments powered by @chenglou/pretext.",
+    "url": "https://www.pretext.cool/",
+    "about": {
+      "@type": "SoftwareSourceCode",
+      "name": "Pretext",
+      "codeRepository": "https://github.com/chenglou/pretext",
+      "programmingLanguage": "TypeScript",
+      "author": { "@type": "Person", "name": "Cheng Lou" }
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2308080c'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='monospace' font-weight='800' font-size='16' fill='%2334d399'%3EPx%3C/text%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#08080c;--surface:#111118;--surface2:#16161f;--border:#252533;--text:#eeedf0;--muted:#78758a;--accent:#34d399;--accent2:#6ee7b7;--purple:#a78bfa}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"Inter",-apple-system,system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+    .ambient{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .ambient::before{content:'';position:absolute;width:800px;height:800px;top:-300px;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(52,211,153,.07) 0%,transparent 70%);animation:pulse 8s ease-in-out infinite}
+    .ambient::after{content:'';position:absolute;width:600px;height:600px;bottom:-200px;right:-150px;background:radial-gradient(circle,rgba(167,139,250,.04) 0%,transparent 70%);animation:pulse 12s ease-in-out infinite reverse}
+    @keyframes pulse{0%,100%{opacity:1;transform:translateX(-50%) scale(1)}50%{opacity:.5;transform:translateX(-50%) scale(1.1)}}
+
+    .page{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:3.5rem 1.5rem 4rem}
+
+    /* Nav */
+    nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:3rem}
+    .nav-brand{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--text)}
+    .nav-logo{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,var(--accent),var(--purple));display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:.7rem;color:#000}
+    .nav-name{font-weight:700;font-size:.95rem}
+    .nav-links{display:flex;gap:.25rem}
+    .nav-links a{font-size:.8rem;font-weight:500;color:var(--muted);text-decoration:none;padding:.35rem .65rem;border-radius:8px;transition:color .15s,background .15s}
+    .nav-links a:hover{color:var(--text);background:var(--surface2)}
+    .nav-cta{color:#000 !important;background:var(--accent) !important;font-weight:600 !important}
+    .nav-cta:hover{background:var(--accent2) !important}
+
+    /* Hero */
+    .badge{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .8rem;border-radius:100px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.15);font-size:.75rem;font-weight:500;color:var(--accent);margin-bottom:1.5rem}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:dotPulse 2s ease-in-out infinite}
+    @keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.3}}
+    h1{font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-bottom:1.25rem;background:linear-gradient(135deg,var(--text) 40%,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .sub{font-size:1.05rem;color:#b0adb8;line-height:1.65;margin-bottom:1.5rem}
+    .sub strong{color:var(--text);font-weight:600}
+    code{font-family:"JetBrains Mono",monospace;font-size:.85em;color:var(--accent);background:rgba(52,211,153,.08);padding:.1em .35em;border-radius:4px}
+    .disclaimer{font-size:.82rem;color:var(--muted);margin-bottom:2rem;line-height:1.55}
+    .disclaimer a{color:var(--accent);text-decoration:none;font-weight:500}
+    .disclaimer a:hover{text-decoration:underline}
+
+    .cta-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2.5rem}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.7rem 1.4rem;border-radius:12px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all .15s}
+    .btn-primary{color:#000;background:var(--accent)}
+    .btn-primary:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(52,211,153,.2)}
+    .btn-ghost{color:#b0adb8;background:var(--surface);border:1px solid var(--border)}
+    .btn-ghost:hover{color:var(--text);border-color:#3a3a50}
+
+    /* Hero image */
+    .hero-img{display:block;border-radius:12px;border:1px solid var(--border);margin-bottom:2.5rem;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+    .hero-img:hover{border-color:rgba(52,211,153,.4);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+    .hero-img img{display:block;width:100%;height:auto}
+
+    /* Sections */
+    h2{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);font-weight:700;margin:2.5rem 0 1rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
+
+    /* Screenshot grid */
+    .screenshots{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;margin-bottom:.5rem}
+    .screenshot{display:block;border-radius:10px;border:1px solid var(--border);overflow:hidden;text-decoration:none;color:var(--text);transition:border-color .15s,transform .15s,box-shadow .15s}
+    .screenshot:hover{border-color:rgba(52,211,153,.4);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+    .screenshot img{display:block;width:100%;height:auto}
+    .screenshot .cap{padding:.55rem .75rem;font-size:.8rem;font-weight:600;background:var(--surface)}
+    .screenshot .cap span{display:block;font-size:.68rem;font-weight:400;color:var(--muted);margin-top:.12rem}
+
+    /* Resources */
+    .resources{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 1.5rem}
+    .resources a{display:inline-flex;align-items:center;gap:.35rem;padding:.55rem 1rem;border-radius:10px;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .15s}
+    .res-primary{color:#000;background:var(--accent)}
+    .res-primary:hover{background:var(--accent2)}
+    .res-ghost{color:#b0adb8;background:var(--surface);border:1px solid var(--border)}
+    .res-ghost:hover{border-color:#3a3a50;color:var(--text)}
+
+    /* Footer */
+    footer{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center;font-size:.78rem;color:var(--muted);line-height:1.6}
+    footer a{color:var(--accent);text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    @media(max-width:640px){
+      .page{padding:2rem 1.25rem 3rem}
+      h1{font-size:2rem}
+      .screenshots{grid-template-columns:1fr}
+      nav{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient"></div>
+  <div class="page">
+
+    <nav>
+      <a href="https://www.pretext.cool" class="nav-brand">
+        <div class="nav-logo">Px</div>
+        <span class="nav-name">pretext.cool</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://chenglou.me/pretext/">Official Demos</a>
+        <a href="https://github.com/chenglou/pretext" class="nav-cta">Pretext GitHub</a>
+      </div>
+    </nav>
+
+    <div class="badge"><span class="dot"></span> 17+ community demos</div>
+    <h1>Pretext Community<br>Demo Collection</h1>
+    <p class="sub">
+      Games, animations, and typography experiments — all built with
+      <strong><code>@chenglou/pretext</code></strong>, the DOM-free text layout
+      engine that's <strong>500x faster</strong> than traditional browser layout.
+    </p>
+    <p class="disclaimer">
+      Curated by a hobbyist, not affiliated with the official project.
+      The official library &rarr; <a href="https://github.com/chenglou/pretext">github.com/chenglou/pretext</a>
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://www.pretext.cool/">Browse All Demos &rarr;</a>
+      <a class="btn btn-ghost" href="https://chenglou.me/pretext/">Official Pretext Site</a>
+    </div>
+
+    <!-- Hero Screenshot -->
+    <a href="https://www.pretext.cool/" class="hero-img">
+      <img src="./images/hero.png" alt="pretext.cool homepage — browse 17+ community-built Pretext demos" loading="lazy" />
+    </a>
+
+    <!-- Games -->
+    <h2>Games</h2>
+    <div class="screenshots">
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=pretext-playground">
+        <img src="./images/hub-playground.png" alt="Pretext Playground — interactive ASCII dragon sandbox" loading="lazy" />
+        <div class="cap">Pretext Playground<span>Interactive sandbox &middot; 0xNyk</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=pretext-breaker">
+        <img src="./images/hub-breaker.png" alt="Pretext Breaker — Breakout arcade game with text bricks" loading="lazy" />
+        <div class="cap">Pretext Breaker<span>Breakout game &middot; rinesh</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=tetris-pretext">
+        <img src="./images/hub-tetris.png" alt="Tetris x Pretext — classic Tetris with text layout" loading="lazy" />
+        <div class="cap">Tetris &times; Pretext<span>Tetris game &middot; shinichimochizuki</span></div>
+      </a>
+    </div>
+
+    <!-- Animations & Visual -->
+    <h2>Animations &amp; Visual</h2>
+    <div class="screenshots">
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=pre-text-experiments">
+        <img src="./images/hub-pre-text-experiments.png" alt="PreText Experiments — Dragon and Anime Walk" loading="lazy" />
+        <div class="cap">PreText Experiments<span>Dragon + Anime Walk &middot; qtakmalay</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=somnai-demos">
+        <img src="./images/hub-somnai-demos.png" alt="Somnai Pretext Demos — 5-demo bundle" loading="lazy" />
+        <div class="cap">Somnai Demos<span>5-demo bundle &middot; Maxwell Ingham</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=pretext-explosive">
+        <img src="./images/hub-pretext-explosive.png" alt="Pretext Explosive — text particle effects" loading="lazy" />
+        <div class="cap">Pretext Explosive<span>Text particles &middot; SamiKamal</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=star-wars-opening">
+        <img src="./images/hub-star-wars-opening.png" alt="Star Wars Crawl — cinematic text crawl" loading="lazy" />
+        <div class="cap">Star Wars Crawl<span>Cinematic text &middot; berryboylb</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=illustrated-manuscript">
+        <img src="./images/hub-illustrated-manuscript.png" alt="Illustrated Manuscript — medieval art typography" loading="lazy" />
+        <div class="cap">Illustrated Manuscript<span>Medieval art &middot; dengshu2</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=sea-of-words">
+        <img src="./images/hub-sea-of-words.png" alt="Sea of Words — ocean text scene" loading="lazy" />
+        <div class="cap">Sea of Words<span>Ocean text scene &middot; Mukul-svg</span></div>
+      </a>
+    </div>
+
+    <!-- Interaction & Experiments -->
+    <h2>Interaction &amp; Experiments</h2>
+    <div class="screenshots">
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=progrmoiz-collection">
+        <img src="./images/hub-progrmoiz-collection.png" alt="Singularity and Liquid Grid — black hole + dashboard" loading="lazy" />
+        <div class="cap">Singularity &amp; Liquid Grid<span>Black hole + dashboard &middot; progrmoiz</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=dokobot-drag">
+        <img src="./images/hub-dokobot-drag.png" alt="Drag Sprite Reflow — interactive text reflow" loading="lazy" />
+        <div class="cap">Drag Sprite Reflow<span>Interactive reflow &middot; dokobot</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=alarmy">
+        <img src="./images/hub-alarmy.png" alt="Alarmy Editorial Clock — multi-column layout" loading="lazy" />
+        <div class="cap">Alarmy Editorial Clock<span>Multi-column &middot; SmisLee</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=jalada-testimonials">
+        <img src="./images/hub-jalada-testimonials.png" alt="Responsive Testimonials — product UI" loading="lazy" />
+        <div class="cap">Responsive Testimonials<span>Product UI &middot; jalada</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=text-flow">
+        <img src="./images/hub-text-flow.png" alt="Text Flow Demo — text flow experiment" loading="lazy" />
+        <div class="cap">Text Flow Demo<span>Experiment &middot; MaiMcdull</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=world-model">
+        <img src="./images/hub-world-model.png" alt="World Model Test — UI experiment" loading="lazy" />
+        <div class="cap">World Model Test<span>UI &middot; CharlieGreenman</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=sachinkasana-face">
+        <img src="./images/hub-sachinkasana-face.png" alt="Face x Pretext — TensorFlow.js + text" loading="lazy" />
+        <div class="cap">Face &times; Pretext<span>TF.js + text &middot; sachinkasana</span></div>
+      </a>
+      <a class="screenshot" href="https://www.pretext.cool/hub?demo=clawsuo-dom-vs-pretext">
+        <img src="./images/hub-clawsuo-dom-vs-pretext.png" alt="DOM vs Pretext — performance benchmark" loading="lazy" />
+        <div class="cap">DOM vs Pretext<span>Performance benchmark &middot; clawsuo-web</span></div>
+      </a>
+    </div>
+
+    <h2>Official Pretext Resources</h2>
+    <div class="resources">
+      <a class="res-primary" href="https://github.com/chenglou/pretext">GitHub: chenglou/pretext</a>
+      <a class="res-ghost" href="https://www.npmjs.com/package/@chenglou/pretext">npm: @chenglou/pretext</a>
+      <a class="res-ghost" href="https://chenglou.me/pretext/">Official Demos</a>
+      <a class="res-ghost" href="https://chenglou.me/">Cheng Lou</a>
+    </div>
+
+    <footer>
+      <p style="max-width:500px;margin:0 auto 1rem;">
+        Hobby project by an independent developer. Not affiliated with Cheng Lou
+        or the official Pretext project. All demo code belongs to their respective authors.
+      </p>
+      <a href="https://www.pretext.cool/">pretext.cool</a> &middot;
+      Powered by <a href="https://github.com/chenglou/pretext">@chenglou/pretext</a>
+    </footer>
+
+  </div>
+</body>
+</html>
